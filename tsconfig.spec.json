@@ -11,6 +11,9 @@
     "src/test.ts",
     "src/polyfills.ts"
   ],
+  "paths": {
+    "ngx-mask": ["node_modules/ngx-mask/fesm2015/ngx-mask.mjs"]
+  },
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"

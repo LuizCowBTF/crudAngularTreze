@@ -4,6 +4,7 @@
     <tr>
       <th>Nome:</th>
       <th>Idade:</th>
+      <th>Data Nascimento:</th>
       <th class="text-center">
         <a [routerLink]="['/pessoas/novo']" title="Novo" alt="Novo" class="btn btn-xs btn-success">
           <i class="fa fa-plus" aria-hidden="true"></i>
@@ -12,8 +13,9 @@
       </th>
     </tr>
     <tr *ngFor="let pessoa of pessoas">
-      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.nome! | caixaAlta }}</td>
       <td>{{ pessoa.idade }}</td>
+      <td>{{ pessoa.dataNascimento! | mask: 'd0/M0/0000' }}</td>
       <td class="text-center" style="width: 300px;">
         <a [routerLink]="['/pessoas/editar', pessoa.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
           <i class="fa fa-edit" aria-hidden="true"></i>
