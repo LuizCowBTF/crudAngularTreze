@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { PessoaModule } from './pessoa/pessoa.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PessoaModule } from './pessoa/pessoa.module';
     FormsModule,
     PessoaModule,
     SharedModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
