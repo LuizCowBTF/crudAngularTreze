@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Endereco } from 'src/app/shared';
+import { Endereco } from 'src/app/shared/models/endereco.model';
 
 const LS_CHAVE: string = "enderecos";
 
@@ -21,7 +21,7 @@ export class EnderecoService {
     endereco.id = new Date().getTime();
     enderecos.push(endereco);
 
-    localStorage[LS_CHAVE] = JSON.stringify(endereco);
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos);
   }
 
   buscarPorId(id: number): Endereco | undefined {
