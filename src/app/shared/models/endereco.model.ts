@@ -6,7 +6,5 @@ export class Endereco {
     public complmto1?: string,
     public complmto2?: string,
     public bairro?: string,
-    public cidade?: string,
-    public estado?: string
   ){}
 }
