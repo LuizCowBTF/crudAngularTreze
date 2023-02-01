@@ -12,7 +12,7 @@ import { PessoaService } from './../services/pessoa.service';
   preserveWhitespaces: true,
 })
 export class InserirPessoaComponent implements OnInit {
-  @ViewChild('formPessoa') formPessoa! : NgForm;
+  @ViewChild('formPessoa') formPessoa!: NgForm;
   pessoa!: Pessoa;
 
   constructor(
