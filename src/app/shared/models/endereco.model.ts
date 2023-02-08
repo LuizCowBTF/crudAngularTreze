@@ -4,7 +4,11 @@ export class Endereco {
     public lograd?: string,
     public numero?: string,
     public complmto1?: string,
-    public complmto2?: string,
     public bairro?: string,
-  ){}
+    public cep?: string,
+    public cidade?: string,
+    public estado?: string,
+    public residencial?: boolean) {
+
+    }
 }

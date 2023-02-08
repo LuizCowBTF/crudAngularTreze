@@ -52,6 +52,49 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="motorista">Motorista :</label>
+      <input
+        type="radio"
+        class="form-check-input"
+        id="motorista1"
+        name="motorista"
+        [(ngModel)]="pessoa.motorista"
+        #motorista1="ngModel"
+        value="NÃO">
+        NÃO
+        <br>
+      <input
+        type="radio"
+        class="form-check-input"
+        id="motorista2"
+        name="motorista"
+        [(ngModel)]="pessoa.motorista"
+        #motorista1="ngModel"
+        value="A">
+        A
+        <br>
+        <input
+        type="radio"
+        class="form-check-input"
+        id="motorista3"
+        name="motorista"
+        [(ngModel)]="pessoa.motorista"
+        #motorista1="ngModel"
+        value="B">
+        B
+        <br>
+        <input
+        type="radio"
+        class="form-check-input"
+        id="motorista4"
+        name="motorista"
+        [(ngModel)]="pessoa.motorista"
+        #motorista1="ngModel"
+        value="AB">
+        AB
+        <br>
+    </div>
+    <div class="form-group">
       <button type="button" class="btn btn-primary" (click)="inserir()" [disabled]="!formPessoa.form.valid">
         <i class="fa fa-save" aria-hidden="true"></i>
         SALVAR
