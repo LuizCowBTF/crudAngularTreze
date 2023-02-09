@@ -32,7 +32,11 @@ const routes: Routes = [
   },
   {
     path: 'pessoas',
-    redirectTo: 'pessoas/listar',
+    component: ListarPessoaComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'pessoas/listar',

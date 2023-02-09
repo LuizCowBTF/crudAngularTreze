@@ -10,7 +10,6 @@ import { Usuario } from './shared';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CRUD PESSOA ===  ESTUDO  == INNOVVATIO';
 
   constructor(
     private router: Router,
