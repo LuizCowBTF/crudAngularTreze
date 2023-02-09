@@ -1,32 +1,48 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
-    <a class="navbar-brand nav-link" routerLink="/pessoas">
-      <i class="fa fa-user-edit"></i>
+
+    <a class="navbar-brand nav-link" routerLink="/home">
+      <i class="fa fa-user-edit">
+        {{ title }}
+      </i>
     </a>
-    <div class="navbar-collapse collapsed" id="navbarContent">
+
+    <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-between" id="navbarContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/pessoas">Pessoas</a>
+        <li *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" class="nav-item">
+          <a class="nav-link" href="#" routerlink="/pessoas">Pessoas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/enderecos">Endereços</a>
+        <li *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" class="nav-item">
+          <a class="nav-link" href="#" routerlink="/enderecos">Endereços</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/cidades">Cidades</a>
+        <li *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" class="nav-item">
+          <a class="nav-link" href="#" routerlink="/cidades">Cidades</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/estados">Estados</a>
+        <li *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" class="nav-item">
+          <a class="nav-link" href="#" routerlink="/estados">Estados</a>
         </li>
+
         <li class="nav-item" ngbDropdown>
           <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
             Cadastros
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-            <a ngbDropdownItem routerLink="/pessoas" (click)="$event.preventDefault()">Pessoas</a>
-            <a ngbDropdownItem routerLink="/enderecos" (click)="$event.preventDefault()">Endereços</a>
-            <a ngbDropdownItem routerLink="/cidades" (click)="$event.preventDefault()">Cidades</a>
-            <a ngbDropdownItem routerLink="/estados" (click)="$event.preventDefault()">Estados</a>
+            <a *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" ngbDropdownItem routerLink="/pessoas" (click)="$event.preventDefault()">Pessoas</a>
+            <a *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" ngbDropdownItem routerLink="/enderecos" (click)="$event.preventDefault()">Endereços</a>
+            <a *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" ngbDropdownItem routerLink="/cidades" (click)="$event.preventDefault()">Cidades</a>
+            <a *ngIf="usuarioLogado.perfil === 'ADMIN' || usuarioLogado.perfil === 'GEREN'" ngbDropdownItem routerLink="/estados" (click)="$event.preventDefault()">Estados</a>
           </div>
+        </li>
+      </ul>
+      <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">LOGOUT</a>
+        </li>
+        <li class="nav-item">
+          <p class="navbar-text mb-0 text-white">
+            <i class="fa fa-user"></i>
+            {{ usuarioLogado.nome }}
+          </p>
         </li>
       </ul>
     </div>

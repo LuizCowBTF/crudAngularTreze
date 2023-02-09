@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Cidade } from 'src/app/shared/models/cidade.model';
+import { Cidade } from 'src/app/shared/';
 
 @Component({
   selector: 'app-modal-cidade',

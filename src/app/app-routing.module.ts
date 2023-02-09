@@ -1,5 +1,7 @@
+import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { LoginRoutes } from './auth/auth-routing.module';
 import { EditarCidadeComponent } from './cidade/editar-cidade/editar-cidade.component';
 import { InserirCidadeComponent } from './cidade/inserir-cidade/inserir-cidade.component';
 import { ListarCidadeComponent } from './cidade/listar-cidade/listar-cidade.component';
@@ -12,28 +14,49 @@ import { ListarEstadoComponent } from './estado/listar-estado/listar-estado.comp
 import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.component';
 import { InserirPessoaComponent } from './pessoa/inserir-pessoa/inserir-pessoa.component';
 import { ListarPessoaComponent } from './pessoa/listar-pessoa/listar-pessoa.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pessoas/listar',
-    pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'pessoas',
-    redirectTo: 'pessoas/listar'
+    redirectTo: 'pessoas/listar',
   },
   {
     path: 'pessoas/listar',
-    component: ListarPessoaComponent
+    component: ListarPessoaComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'pessoas/novo',
-    component: InserirPessoaComponent
+    component: InserirPessoaComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'pessoas/editar/:id',
-    component: EditarPessoaComponent
+    component: EditarPessoaComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'enderecos',
@@ -41,15 +64,27 @@ const routes: Routes = [
   },
   {
     path: 'enderecos/listar',
-    component: ListarEnderecoComponent
+    component: ListarEnderecoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'enderecos/novo',
-    component: InserirEnderecoComponent
+    component: InserirEnderecoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'enderecos/editar/:id',
-    component: EditarEnderecoComponent
+    component: EditarEnderecoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'cidades',
@@ -57,15 +92,27 @@ const routes: Routes = [
   },
   {
     path: 'cidades/listar',
-    component: ListarCidadeComponent
+    component: ListarCidadeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'cidades/novo',
-    component: InserirCidadeComponent
+    component: InserirCidadeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'cidades/editar/:id',
-    component: EditarCidadeComponent
+    component: EditarCidadeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'estados',
@@ -73,16 +120,29 @@ const routes: Routes = [
   },
   {
     path: 'estados/listar',
-    component: ListarEstadoComponent
+    component: ListarEstadoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'estados/novo',
-    component: InserirEstadoComponent
+    component: InserirEstadoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
   {
     path: 'estados/editar/:id',
-    component: EditarEstadoComponent
+    component: EditarEstadoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,GEREN,FUNCI'
+    }
   },
+  ...LoginRoutes
 ];
 
 @NgModule({
